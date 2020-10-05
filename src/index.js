@@ -10,6 +10,13 @@ import {Provider} from 'react-redux';
 //access store
 import store from './redux/store'
 
+//FOR TESTING STORE
+// import {addName, removeName} from './redux/actions'
+store.subscribe(() => {console.log(store.getState())})
+// store.dispatch(addName("Hello"))
+// store.dispatch(addName("Hello2"))
+// store.dispatch(removeName(1))
+
 ReactDOM.render(
     <Provider store = {store}>
         <App/>
