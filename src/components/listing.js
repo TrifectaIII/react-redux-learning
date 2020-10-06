@@ -4,14 +4,22 @@ import {removeName} from '../redux/actions';
 
 // const tempNames = ['Sunny', 'Vette'];
 
-function Listing (props) {
-    const listElements = props.ideas.map((name, index) => {
-        return (<li key={index}>{name}</li>)
-    });
+class Listing extends React.Component{
+    render() {
+        const listElements = this.props.ideas.map((name, index) => {
+            return (
+                <li key={index}>
+                    <button onClick={()=>{this.props.removeName(index)}}>
+                        {name}
+                    </button>
+                </li>
+            )
+        });
 
-    return (
-        <ul>{listElements}</ul>
-    );
+        return (
+            <ul>{listElements}</ul>
+        );
+    }
 }
 
 const mapStateToProps = (state) => {
